@@ -114,8 +114,9 @@
             android:layout_height="10dp"
             android:layout_below="@+id/modifyPassword"
             android:background="#f5f5f5"/>
+
         <RelativeLayout
-            android:id="@+id/my_view3"
+            android:id="@+id/my_map"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_below="@+id/my_view2"
@@ -127,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="10dp"
-                android:text="联系我们"
+                android:text="显示地图"
                 android:textSize="17sp" />
 
             <ImageView
@@ -143,7 +144,7 @@
             android:id="@+id/my_view4"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:layout_below="@+id/my_view3"
+            android:layout_below="@+id/my_map"
             android:background="#f5f5f5"/>
 
         <RelativeLayout

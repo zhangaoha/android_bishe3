@@ -16,14 +16,6 @@
 <!--        app:titleTextColor="@color/white"-->
 <!--        app:title="导航" />-->
 
-    <com.amap.api.maps.MapView
-        android:id="@+id/gaode_map"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="39dp">
-
-    </com.amap.api.maps.MapView>
 
 <!--    <Button-->
 <!--        android:layout_width="wrap_content"-->

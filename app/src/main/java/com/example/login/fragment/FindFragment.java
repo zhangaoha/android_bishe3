@@ -29,10 +29,7 @@ import com.example.login.R;
 
 public class FindFragment extends Fragment {
     private View root;
-    private MapView mapView;
-    private AMap aMap = null;
 
-//    private Button btn_search;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,65 +43,11 @@ public class FindFragment extends Fragment {
         if (root == null){
             root = inflater.inflate(R.layout.fragment_find, container, false);
         }
-        
 
-//        btn_search = root.findViewById(R.id.btn_search);
-        // 定义了一个地图view
-        mapView = root.findViewById(R.id.gaode_map);
 
-        mapView.onCreate(savedInstanceState);
-
-        // 初始化地图控制器对象
-        if (aMap == null) {
-            aMap = mapView.getMap();
-        }
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // 如果没有授予定位权限，请求权限
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
-        } else {
-            // 如果已经有定位权限，初始化地图
-            initMap();
-        }
         return root;
     }
 
-    private void initMap() {
-        MyLocationStyle myLocationStyle = new MyLocationStyle();
-        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_FOLLOW);
-        myLocationStyle.interval(2000);
 
-        aMap.setMyLocationStyle(myLocationStyle);
-        aMap.getUiSettings().setMyLocationButtonEnabled(true);
-        aMap.moveCamera(CameraUpdateFactory.zoomTo(15));
-        aMap.setMyLocationEnabled(true);
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (aMap != null) {
-            aMap.setMyLocationEnabled(true);
-        }
-        mapView.onResume();
-    }
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (aMap != null) {
-            aMap.setMyLocationEnabled(false);
-        }
-        mapView.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
-    }
 
 }

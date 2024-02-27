@@ -34,16 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Context context = this;
-        //定位隐私政策同意
-        AMapLocationClient.updatePrivacyShow(context, true, true);
-        AMapLocationClient.updatePrivacyAgree(context, true);
-        //地图隐私政策同意
-        MapsInitializer.updatePrivacyShow(context, true, true);
-        MapsInitializer.updatePrivacyAgree(context, true);
-        //搜索隐私政策同意
-        ServiceSettings.updatePrivacyShow(context, true, true);
-        ServiceSettings.updatePrivacyAgree(context, true);
 
         //初始化控件
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);

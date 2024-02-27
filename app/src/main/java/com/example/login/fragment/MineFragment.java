@@ -24,6 +24,7 @@ import com.example.login.LoginActivity;
 import com.example.login.UpdataPwdActivity;
 import com.example.login.R;
 import com.example.login.Utils.UserInfo;
+import com.example.login.activity.MapActivity;
 import com.example.login.db.UserDbHelper;
 
 import es.dmoral.toasty.Toasty;
@@ -33,7 +34,7 @@ public class MineFragment extends Fragment {
 
     private EditText tv_username, tv_nickname;
     private View root;
-    private RelativeLayout modifyPasswordLayout, about_app, cancelAccountLayout;  // 声明成员变量
+    private RelativeLayout modifyPasswordLayout, about_app, cancelAccountLayout, my_map;  // 声明成员变量
     private TextView logOut;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +47,7 @@ public class MineFragment extends Fragment {
         // 初始化控件
         tv_username = root.findViewById(R.id.tv_username1);
         tv_nickname = root.findViewById(R.id.tv_nickname1);
+        my_map = root.findViewById(R.id.my_map);
         modifyPasswordLayout = root.findViewById(R.id.modifyPassword);  // 初始化成员变量
         logOut = root.findViewById(R.id.logOut);
         cancelAccountLayout = root.findViewById(R.id.cancel_account);
@@ -60,6 +62,14 @@ public class MineFragment extends Fragment {
 
             }
 
+        });
+        //跳转到我的地图界面
+        my_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MapActivity.class);
+                startActivity(intent);
+            }
         });
         //跳转到about_app界面
         about_app.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +114,9 @@ public class MineFragment extends Fragment {
                 // 清理操作（如果有的话）
 
                 // 关闭当前活动
-//                if (getActivity() != null) {
-//                    getActivity().finish();
-//                }
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
 
                 // 关闭整个应用程序（如果需要的话）
                 // finishAffinity();
@@ -171,7 +181,7 @@ public class MineFragment extends Fragment {
             // 退出登录
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
-//            getActivity().finish();
+            getActivity().finish();
         } else {
             // 删除失败，处理异常情况
             // 可以弹出提示或者记录日志等

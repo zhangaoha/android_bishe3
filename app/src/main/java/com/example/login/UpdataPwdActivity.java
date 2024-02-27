@@ -57,7 +57,7 @@ public class UpdataPwdActivity extends AppCompatActivity {
                             //回传数据时要用，在startActivityForResult方法,启动一个页面，并且在该页面要设置
                             //setResult
                             setResult(1000);
-//                            finish();
+                            finish();
                         }else {
                             Toasty.error(UpdataPwdActivity.this,"修改密码失败", Toasty.LENGTH_SHORT).show();
 
